@@ -30,7 +30,7 @@ class Test_Student_Registration_Form:
             Methods(self.driver).field_optional(Locators.FIRST_NAME_FIELD_STUDENT_REG_FORM, 'Имя:', BaseData.first_name_student)
 
             # Поле ввода "Фамилия"
-            Methods(self.driver).field_optional(Locators.LAST_NAME_FIELD_STUDENT_REG_FORM, 'Фамилия', BaseData.last_name_student)
+            Methods(self.driver).field_optional(Locators.LAST_NAME_FIELD_STUDENT_REG_FORM, 'Фамилия:', BaseData.last_name_student)
 
             # Поле ввода "Email"
             Methods(self.driver).field_optional(Locators.EMAIL_FIELD_STUDENT_REG_FORM, 'Email:', BaseData.email_student)
