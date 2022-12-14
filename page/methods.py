@@ -22,8 +22,21 @@ class Methods():
         chromeOptions = webdriver.ChromeOptions()
         chromeOptions.add_experimental_option("prefs", {"download.default_directory": "C:\\git_hub\\example_autotests\\downloads"})
         chrome_d = webdriver.Chrome(executable_path="C:\\git_hub\\example_autotests\\driver\\chromedriver.exe", options=chromeOptions)
-        #firefox_d = webdriver.Firefox(executable_path="C:\\git_hub\\example_autotests\\driver\\geckodriver.exe", options=chromeOptions)
         self.driver = chrome_d
+        self.driver.get('https://demoqa.com/')
+        self.driver.implicitly_wait(10)
+        self.driver.maximize_window()
+
+    def browser_open_firefox(self):
+        firefoxOptions = webdriver.FirefoxProfile()
+        firefoxOptions.set_preference("browser.helperApps.neverAsk.saveToDisk", "application/zip")
+        firefoxOptions.set_preference("browser.download.manager.showWhenStarting", False)
+        firefoxOptions.set_preference("browser.download.dir",
+                                      "C:\\git_hub\\example_autotests\\downloads")
+        firefox_d = webdriver.Firefox(
+            executable_path="C:\\git_hub\\example_autotests\\driver\\geckodriver.exe",
+            firefox_profile=firefoxOptions)
+        self.driver = firefox_d
         self.driver.get('https://demoqa.com/')
         self.driver.implicitly_wait(10)
         self.driver.maximize_window()
