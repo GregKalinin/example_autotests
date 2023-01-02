@@ -164,7 +164,7 @@ class Methods():
             Logger.add_end_step(method='Клик по чекбоксу без текста')
 
     """ЗАПОЛНЕНИЕ НЕОБЯЗАТЕЛЬНЫХ ПОЛЕЙ ВВОДА"""
-    def field_optional(self, locator_field, field_name, send_keys):
+    def field_optional_filling(self, locator_field, field_name, send_keys):
         with allure.step('Заполнение необязательных полей ввода'):
             Logger.add_start_step(url=self.driver.current_url, method='Заполнение необязательных полей ввода')
             name_field = wait(self.driver, 10).until(EC.element_to_be_clickable(locator_field))
@@ -185,7 +185,7 @@ class Methods():
             Logger.add_end_step(method='Добавление изображения')
 
     """ПРОВЕРКА ОТСУТСТВИЯ ЭЛЕМЕНТА"""
-    def element_in_page_false(self, locator):
+    def check_element_in_page_false(self, locator):
         with allure.step('Проверка отсутствия элемента'):
             Logger.add_start_step(url=self.driver.current_url, method='Проверка отсутствия элемента')
             try:
@@ -195,7 +195,7 @@ class Methods():
             Logger.add_end_step(method='Проверка отсутствия элемента')
 
     """ПРОВЕРКА ПРИСУТСТВИЯ ЭЛЕМЕНТА"""
-    def element_in_page_true(self, locator):
+    def check_element_in_page_true(self, locator):
         with allure.step('Проверка присутствия элемента'):
             Logger.add_start_step(url=self.driver.current_url, method='Проверка присутствия элемента')
             variable_button = wait(self.driver, 2).until(EC.element_to_be_clickable(locator))
@@ -229,7 +229,7 @@ class Methods():
             Logger.add_end_step(method='Текст на страницах')
 
     """ВЫБОР ИЗ ВЫПАДАЮЩЕГО СПИСКА"""
-    def list_dropdown_down_enter(self, locator_field, locator_text):
+    def list_dropdown_down_enter_choose(self, locator_field, locator_text):
         with allure.step('Выбор из выпадающего списка'):
             Logger.add_start_step(url=self.driver.current_url, method='Выбор из выпадающего списка')
             name_field = wait(self.driver, 10).until(EC.element_to_be_clickable(locator_field)).click()

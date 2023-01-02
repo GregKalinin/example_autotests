@@ -27,28 +27,28 @@ class Test_Student_Registration_Form:
             Methods(self.driver).text_on_pages(Locators.TITLE_NAME_STUDENT_REG_FORM, 'Student Registration Form')
 
             # Поле ввода "Имя"
-            Methods(self.driver).field_optional(Locators.FIRST_NAME_FIELD_STUDENT_REG_FORM, 'Имя:', BaseData.first_name_student)
+            Methods(self.driver).field_optional_filling(Locators.FIRST_NAME_FIELD_STUDENT_REG_FORM, 'Имя:', BaseData.first_name_student)
 
             # Поле ввода "Фамилия"
-            Methods(self.driver).field_optional(Locators.LAST_NAME_FIELD_STUDENT_REG_FORM, 'Фамилия:', BaseData.last_name_student)
+            Methods(self.driver).field_optional_filling(Locators.LAST_NAME_FIELD_STUDENT_REG_FORM, 'Фамилия:', BaseData.last_name_student)
 
             # Поле ввода "Email"
-            Methods(self.driver).field_optional(Locators.EMAIL_FIELD_STUDENT_REG_FORM, 'Email:', BaseData.email_student)
+            Methods(self.driver).field_optional_filling(Locators.EMAIL_FIELD_STUDENT_REG_FORM, 'Email:', BaseData.email_student)
 
             # Выбор пола
             Methods(self.driver).radio_button_click(Locators.MALE_RADIO_BUTTON_STUDENT_REG_FORM)
 
             # Поле ввода "Мобильный номер"
-            Methods(self.driver).field_optional(Locators.MOBILE_NUMBER_FIELD_STUDENT_REG_FORM, 'Мобильный номер:',
-                                                BaseData.mobile_number_student)
+            Methods(self.driver).field_optional_filling(Locators.MOBILE_NUMBER_FIELD_STUDENT_REG_FORM, 'Мобильный номер:',
+                                                        BaseData.mobile_number_student)
 
             # Поле ввода "Дата рождения"
-            Methods(self.driver).field_optional(Locators.DATE_OF_BIRTH_FIELD_STUDENT_REG_FORM, 'Дата рождения:',
-                                                BaseData.date_of_birth_student)
+            Methods(self.driver).field_optional_filling(Locators.DATE_OF_BIRTH_FIELD_STUDENT_REG_FORM, 'Дата рождения:',
+                                                        BaseData.date_of_birth_student)
 
             # Поле ввода "Предметы"
-            Methods(self.driver).field_optional(Locators.SUBJECTS_FIELD_STUDENT_REG_FORM, 'Предметы:',
-                                                BaseData.subject_student)
+            Methods(self.driver).field_optional_filling(Locators.SUBJECTS_FIELD_STUDENT_REG_FORM, 'Предметы:',
+                                                        BaseData.subject_student)
 
             # Клик по чекбоксу "Хобби"
             Methods(self.driver).checkbox_click_without_text(Locators.RANDOM_CHECKBOX_STUDENT_REG_FORM)
@@ -60,16 +60,16 @@ class Test_Student_Registration_Form:
             Methods(self.driver).scrolling_page_down()
 
             # Поле ввода "Текущий адрес"
-            Methods(self.driver).field_optional(Locators.CURRENT_ADDRESS_FIELD_STUDENT_REG_FORM, 'Текущий адрес:',
-                                                BaseData.current_address_student)
+            Methods(self.driver).field_optional_filling(Locators.CURRENT_ADDRESS_FIELD_STUDENT_REG_FORM, 'Текущий адрес:',
+                                                        BaseData.current_address_student)
 
             # Выбор штата
-            Methods(self.driver).list_dropdown_down_enter(Locators.STATE_LIST_STUDENT_REG_FORM,
-                                                          Locators.STATE_LIST_HARYANA_NAME_STUDENT_REG_FORM)
+            Methods(self.driver).list_dropdown_down_enter_choose(Locators.STATE_LIST_STUDENT_REG_FORM,
+                                                                 Locators.STATE_LIST_HARYANA_NAME_STUDENT_REG_FORM)
 
             # Выбор города
-            Methods(self.driver).list_dropdown_down_enter(Locators.CITY_LIST_STUDENT_REG_FORM,
-                                                          Locators.CITY_LIST_KARNAL_NAME_STUDENT_REG_FORM)
+            Methods(self.driver).list_dropdown_down_enter_choose(Locators.CITY_LIST_STUDENT_REG_FORM,
+                                                                 Locators.CITY_LIST_KARNAL_NAME_STUDENT_REG_FORM)
 
             # Проверка текста в футере
             Methods(self.driver).text_on_pages(Locators.FOOTER_TEXT,
