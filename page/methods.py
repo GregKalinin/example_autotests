@@ -92,8 +92,8 @@ class Methods():
 
     """НАЗВАНИЕ ССЫЛКИ И КЛИК"""
     def check_link_click(self, locator, text_value):
-        with allure.step('Название ссылки'):
-            Logger.add_start_step(url=self.driver.current_url, method='Название ссылки')
+        with allure.step(f'Название ссылки {text_value}'):
+            Logger.add_start_step(url=self.driver.current_url, method=f'Название ссылки {text_value}')
             variable_link = wait(self.driver, 10).until(EC.visibility_of_element_located(locator))
             assert variable_link.text == text_value
             print(f"Название ссылки: {variable_link.text} - УСПЕШНО")
@@ -102,8 +102,8 @@ class Methods():
 
     """КЛИК ПО КНОПКЕ"""
     def button_click(self, locator, button_text):
-        with allure.step('Клик по кнопке'):
-            Logger.add_start_step(url=self.driver.current_url, method='Клик по кнопке, проверка названия кнопки')
+        with allure.step(f'Клик по кнопке {button_text}'):
+            Logger.add_start_step(url=self.driver.current_url, method=f'Клик по кнопке, проверка названия кнопки {button_text}')
             variable_button = wait(self.driver, 10).until(EC.element_to_be_clickable(locator))
             assert variable_button.text == button_text
             print(f"Название кнопки: {variable_button.text} - УСПЕШНО")
@@ -113,8 +113,8 @@ class Methods():
 
     """БЕЗ КЛИКА ПО КНОПКЕ"""
     def button_without_click(self, locator, button_text):
-        with allure.step('Без клика по кнопке'):
-            Logger.add_start_step(url=self.driver.current_url, method='Без клика по кнопке, проверка названия кнопки')
+        with allure.step(f'Без клика по кнопке {button_text}'):
+            Logger.add_start_step(url=self.driver.current_url, method=f'Без клика по кнопке, проверка названия кнопки{button_text}')
             variable_button = wait(self.driver, 10).until(EC.element_to_be_clickable(locator))
             assert variable_button.text == button_text
             print(f"Название кнопки: {variable_button.text} - УСПЕШНО")
@@ -147,8 +147,8 @@ class Methods():
 
     """КЛИК ПО ЧЕКБОКСУ"""
     def checkbox_click(self, locator, checkbox_text):
-        with allure.step('Клик по чекбоксу'):
-            Logger.add_start_step(url=self.driver.current_url, method='Клик по чекбоксу')
+        with allure.step(f'Клик по чекбоксу {checkbox_text}'):
+            Logger.add_start_step(url=self.driver.current_url, method=f'Клик по чекбоксу {checkbox_text}')
             variable_checkbox = wait(self.driver, 10).until(EC.element_to_be_clickable(locator))
             assert variable_checkbox.text == checkbox_text
             print(f"Название чекбокса: {variable_checkbox.text} - УСПЕШНО")
@@ -165,8 +165,8 @@ class Methods():
 
     """ЗАПОЛНЕНИЕ НЕОБЯЗАТЕЛЬНЫХ ПОЛЕЙ ВВОДА"""
     def field_optional_filling(self, locator_field, field_name, send_keys):
-        with allure.step('Заполнение необязательных полей ввода'):
-            Logger.add_start_step(url=self.driver.current_url, method='Заполнение необязательных полей ввода')
+        with allure.step(f'Заполнение необязательных полей ввода {field_name}'):
+            Logger.add_start_step(url=self.driver.current_url, method=f'Заполнение необязательных полей ввода {field_name}')
             name_field = wait(self.driver, 10).until(EC.element_to_be_clickable(locator_field))
             name_field.send_keys(Keys.CONTROL, 'a')
             name_field.send_keys(send_keys)
@@ -177,8 +177,8 @@ class Methods():
 
     """ДОБАВЛЕНИЕ ИЗОБРАЖЕНИЯ"""
     def add_photo(self, locator_field, link):
-        with allure.step('Добавление изображения'):
-            Logger.add_start_step(url=self.driver.current_url, method='Добавление изображения')
+        with allure.step(f'Добавление изображения {link}'):
+            Logger.add_start_step(url=self.driver.current_url, method=f'Добавление изображения {link}')
             photo_add_button = wait(self.driver, 10).until(EC.element_to_be_clickable(locator_field))
             photo_add_button.send_keys(link)
             print("Изображение добавлено - УСПЕШНО")
@@ -221,8 +221,8 @@ class Methods():
 
     """ТЕКСТ НА СТРАНИЦАХ"""
     def text_on_pages(self, locator, text_name):
-        with allure.step('Текст на страницах'):
-            Logger.add_start_step(url=self.driver.current_url, method='Текст на страницах')
+        with allure.step(f'Текст на страницах {text_name}'):
+            Logger.add_start_step(url=self.driver.current_url, method=f'Текст на страницах {text_name}')
             step_name_text = wait(self.driver, 10).until(EC.element_to_be_clickable(locator))
             assert step_name_text.text == text_name
             print(f"{step_name_text.text} - УСПЕШНО")
@@ -230,8 +230,8 @@ class Methods():
 
     """ВЫБОР ИЗ ВЫПАДАЮЩЕГО СПИСКА"""
     def list_dropdown_down_enter_choose(self, locator_field, locator_text):
-        with allure.step('Выбор из выпадающего списка'):
-            Logger.add_start_step(url=self.driver.current_url, method='Выбор из выпадающего списка')
+        with allure.step(f'Выбор из выпадающего списка {locator_text}'):
+            Logger.add_start_step(url=self.driver.current_url, method=f'Выбор из выпадающего списка {locator_text}')
             name_field = wait(self.driver, 10).until(EC.element_to_be_clickable(locator_field)).click()
             time.sleep(1)
             name_field = wait(self.driver, 10).until(EC.element_to_be_clickable(locator_text)).click()
