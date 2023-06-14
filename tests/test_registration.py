@@ -1,5 +1,6 @@
 import time
 import allure
+from allure import severity, severity_level
 from base.base_class import BaseData
 from page.methods import Methods
 from base.locators import Locators
@@ -8,6 +9,7 @@ class Test_Student_Registration_Form:
 
     """РЕГИСТРАЦИЯ СТУДЕНТА"""
     @allure.description('РЕГИСТРАЦИЯ СТУДЕНТА')
+    @severity(severity_level.CRITICAL)
     def test_student_registration_form(self):
 
         Methods.browser_open(self)
