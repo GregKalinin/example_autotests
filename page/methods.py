@@ -1,16 +1,15 @@
 import datetime
-import os
 import time
-import openpyxl
-from openpyxl import load_workbook
 import allure
 from selenium.common import TimeoutException, NoAlertPresentException
 from selenium.webdriver import Keys
-from selenium.webdriver.support.select import Select
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait as wait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 from utilities.logger import Logger
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
 
 
 class Methods():
@@ -18,28 +17,27 @@ class Methods():
     def __init__(self, driver):
         self.driver = driver
 
-    def browser_open(self):
+    def browser_open_chrome(self):
         chromeOptions = webdriver.ChromeOptions()
+        service_chrome = Service(executable_path=ChromeDriverManager().install())
         chromeOptions.add_experimental_option("prefs", {"download.default_directory": "C:\\git_hub\\example_autotests\\downloads"})
-        chrome_d = webdriver.Chrome(executable_path="C:\\git_hub\\example_autotests\\driver\\chromedriver.exe", options=chromeOptions)
+        chrome_d = webdriver.Chrome(service=service_chrome, options=chromeOptions)
         self.driver = chrome_d
         self.driver.get('https://demoqa.com/')
-        self.driver.implicitly_wait(10)
         self.driver.maximize_window()
+        self.driver.implicitly_wait(10)
 
     def browser_open_firefox(self):
         firefoxOptions = webdriver.FirefoxProfile()
+        service_firefox = Service(executable_path=GeckoDriverManager().install())
         firefoxOptions.set_preference("browser.helperApps.neverAsk.saveToDisk", "application/zip")
         firefoxOptions.set_preference("browser.download.manager.showWhenStarting", False)
-        firefoxOptions.set_preference("browser.download.dir",
-                                      "C:\\git_hub\\example_autotests\\downloads")
-        firefox_d = webdriver.Firefox(
-            executable_path="C:\\git_hub\\example_autotests\\driver\\geckodriver.exe",
-            firefox_profile=firefoxOptions)
+        firefoxOptions.set_preference("browser.download.dir", "C:\\git_hub\\example_autotests\\downloads")
+        firefox_d = webdriver.Firefox(service=service_firefox, firefox_profile=firefoxOptions)
         self.driver = firefox_d
         self.driver.get('https://demoqa.com/')
-        self.driver.implicitly_wait(10)
         self.driver.maximize_window()
+        self.driver.implicitly_wait(10)
 
 
     """ПОЛУЧЕНИЕ ТЕКУЩЕГО URL"""

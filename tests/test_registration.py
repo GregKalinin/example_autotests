@@ -12,7 +12,7 @@ class Test_Student_Registration_Form:
     @severity(severity_level.CRITICAL)
     def test_student_registration_form(self):
 
-        Methods.browser_open(self)
+        Methods.browser_open_chrome(self)
 
         try:
 
