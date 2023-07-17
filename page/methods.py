@@ -1,4 +1,5 @@
 import datetime
+import os
 import time
 import allure
 from selenium.common import TimeoutException, NoAlertPresentException
@@ -20,7 +21,7 @@ class Methods():
     def browser_open_chrome(self):
         chromeOptions = webdriver.ChromeOptions()
         service_chrome = Service(executable_path=ChromeDriverManager().install())
-        chromeOptions.add_experimental_option("prefs", {"download.default_directory": "C:\\git_hub\\example_autotests\\downloads"})
+        chromeOptions.add_experimental_option("prefs", {"download.default_directory": f"{os.getcwd()}\downloads"})
         chrome_d = webdriver.Chrome(service=service_chrome, options=chromeOptions)
         self.driver = chrome_d
         self.driver.get('https://demoqa.com/')
@@ -32,7 +33,8 @@ class Methods():
         service_firefox = Service(executable_path=GeckoDriverManager().install())
         firefoxOptions.set_preference("browser.helperApps.neverAsk.saveToDisk", "application/zip")
         firefoxOptions.set_preference("browser.download.manager.showWhenStarting", False)
-        firefoxOptions.set_preference("browser.download.dir", "C:\\git_hub\\example_autotests\\downloads")
+        firefoxOptions.set_preference("browser.download.folderList", 2)
+        firefoxOptions.set_preference("browser.download.dir", f"{os.getcwd()}\downloads")
         firefox_d = webdriver.Firefox(service=service_firefox, firefox_profile=firefoxOptions)
         self.driver = firefox_d
         self.driver.get('https://demoqa.com/')
