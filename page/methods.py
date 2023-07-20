@@ -217,7 +217,7 @@ class Methods():
     def get_screenshot(self):
         date_now = datetime.datetime.now().strftime("%Y.%m.%d.%H.%M.%S")
         screenshot_name = 'Снимок' + date_now + '.jpeg'
-        self.driver.save_screenshot("C:\\git_hub\\example_autotests\\screenshots\\" + screenshot_name)
+        self.driver.save_screenshot(f"{os.getcwd()}\\screenshots\{screenshot_name}")
 
     """ТЕКСТ НА СТРАНИЦАХ"""
     def text_on_pages(self, locator, text_name):
