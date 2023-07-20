@@ -1,5 +1,6 @@
 import time
 import allure
+import pytest
 from allure import severity, severity_level
 from base.base_class import BaseData
 from page.methods import Methods
@@ -10,6 +11,7 @@ class Test_Student_Registration_Form:
     """РЕГИСТРАЦИЯ СТУДЕНТА"""
     @allure.description('РЕГИСТРАЦИЯ СТУДЕНТА')
     @severity(severity_level.CRITICAL)
+    @pytest.mark.run(order=1)
     def test_student_registration_form(self):
 
         Methods.browser_open_chrome(self)
