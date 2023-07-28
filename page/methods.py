@@ -20,7 +20,7 @@ class Methods():
 
     def browser_open_chrome(self):
         chromeOptions = webdriver.ChromeOptions()
-        service_chrome = Service(executable_path=ChromeDriverManager().install())
+        service_chrome = Service(executable_path=ChromeDriverManager(version="114.0.5735.90").install())
         chromeOptions.add_experimental_option("prefs", {"download.default_directory": f"{os.getcwd()}\downloads"})
         chrome_d = webdriver.Chrome(service=service_chrome, options=chromeOptions)
         self.driver = chrome_d
