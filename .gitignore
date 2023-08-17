@@ -6,6 +6,13 @@ __pycache__/
 # C extensions
 *.so
 
+# Папки
+tests/downloads/
+tests/logs/
+tests/allure-results/
+tests/screenshots
+tests/.pytest_cache
+
 # Distribution / packaging
 .Python
 build/
