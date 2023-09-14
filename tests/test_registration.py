@@ -13,8 +13,12 @@ class Test_Student_Registration_Form:
     @severity(severity_level.CRITICAL)
     @pytest.mark.run(order=1)
     @pytest.mark.smoke
-    def test_student_registration_form(self):
-        Methods.browser_open_chrome(self)
+    @pytest.mark.parametrize('params', ['chrome', 'firefox'])
+    def test_student_registration_form(self, params):
+        if params == 'chrome':
+            Methods.browser_open_chrome(self)
+        elif params == 'firefox':
+            Methods.browser_open_firefox(self)
         create_page = Methods(self.driver)
 
         try:
