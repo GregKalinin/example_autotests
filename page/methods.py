@@ -19,32 +19,6 @@ class Methods():
     def __init__(self, driver):
         self.driver = driver
 
-    def browser_open_chrome(self):
-        chromeOptions = webdriver.ChromeOptions()
-        service_chrome = Service(executable_path=ChromeDriverManager(version="114.0.5735.90").install())
-        chromeOptions.add_experimental_option("prefs", {"download.default_directory": f"{os.getcwd()}\downloads"})
-        chromeOptions.add_argument("--start-maximized")
-        #chromeOptions.add_argument("--headless=new") #-- Без отображения окна браузера
-        chrome_d = webdriver.Chrome(service=service_chrome, options=chromeOptions)
-        self.driver = chrome_d
-        self.driver.get('https://demoqa.com/')
-        self.driver.implicitly_wait(10)
-
-    def browser_open_firefox(self):
-        firefoxOptions = webdriver.FirefoxProfile()
-        options = webdriver.FirefoxOptions()
-        service_firefox = Service(executable_path=GeckoDriverManager().install())
-        firefoxOptions.set_preference("browser.helperApps.neverAsk.saveToDisk", "application/zip")
-        firefoxOptions.set_preference("browser.download.manager.showWhenStarting", False)
-        firefoxOptions.set_preference("browser.download.folderList", 2)
-        firefoxOptions.set_preference("browser.download.dir", f"{os.getcwd()}\downloads")
-        #options.add_argument("--headless") #-- Без отображения окна браузера
-        firefox_d = webdriver.Firefox(service=service_firefox, firefox_profile=firefoxOptions, options=options)
-        self.driver = firefox_d
-        self.driver.get('https://demoqa.com/')
-        self.driver.maximize_window()
-        self.driver.implicitly_wait(10)
-
 
     """ПОЛУЧЕНИЕ ТЕКУЩЕГО URL"""
     def get_current_url(self):
