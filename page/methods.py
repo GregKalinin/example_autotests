@@ -4,14 +4,10 @@ import time
 import allure
 from selenium.common import TimeoutException, NoAlertPresentException
 from selenium.webdriver import Keys
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait as wait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium import webdriver
 from utilities.logger import Logger
 from allure_commons.types import AttachmentType
-from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.firefox import GeckoDriverManager
 
 
 class Methods():
