@@ -57,7 +57,7 @@ class Methods():
     def scrolling_page(self, x=0, y=0):
         """ПРОКРУТКА СТРАНИЦЫ"""
         with allure.step('Прокрутка страницы'):
-            self.driver.execute_script(f"window.scrollBy({x}, {y});")
+            self.driver.execute_script(f"window.scrollBy({x}, {y})")
 
 
     def check_link_click(self, locator, text_value):
