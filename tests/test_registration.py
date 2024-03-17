@@ -18,7 +18,7 @@ class Test_Student_Registration_Form:
         create_page = Methods(self.driver)
 
         # Прокрутка страницы вниз
-        create_page.scrolling_page_down()
+        create_page.scrolling_page(0, 600)
 
         # Переход в модуль "Формы"
         create_page.element_to_be_clickable(Locators.FORMS_MODULE)
@@ -60,7 +60,7 @@ class Test_Student_Registration_Form:
         create_page.add_photo(Locators.ADD_PICTURE_STUDENT_REG_FORM, BaseData.link_add_picture_student)
 
         # Прокрутка страницы вниз
-        create_page.scrolling_page_down()
+        create_page.scrolling_page(0, -600)
 
         # Поле ввода "Текущий адрес"
         create_page.field_optional_filling(Locators.CURRENT_ADDRESS_FIELD_STUDENT_REG_FORM, 'Текущий адрес:',
