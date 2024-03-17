@@ -9,11 +9,11 @@ from selenium.webdriver.chrome.service import Service
 def open_browsers(request):
     if request.param == 'chrome':
         chromeOptions = webdriver.ChromeOptions()
-        service_chrome = Service(executable_path=ChromeDriverManager(version="114.0.5735.90").install())
+        #service_chrome = Service(executable_path=ChromeDriverManager(version="114.0.5735.90").install())
         chromeOptions.add_experimental_option("prefs", {"download.default_directory": f"{os.getcwd()}\downloads"})
         chromeOptions.add_argument("--start-maximized")
         # chromeOptions.add_argument("--headless=new") #-- Без отображения окна браузера
-        chrome_d = webdriver.Chrome(service=service_chrome, options=chromeOptions)
+        chrome_d = webdriver.Chrome(options=chromeOptions)
         driver = chrome_d
         request.cls.driver = driver
         driver.get('https://demoqa.com/')
@@ -32,7 +32,7 @@ def open_browsers(request):
         firefoxOptions.set_preference("browser.download.folderList", 2)
         firefoxOptions.set_preference("browser.download.dir", f"{os.getcwd()}\downloads")
         # options.add_argument("--headless") #-- Без отображения окна браузера
-        firefox_d = webdriver.Firefox(service=service_firefox, firefox_profile=firefoxOptions, options=options)
+        firefox_d = webdriver.Firefox(service=service_firefox, options=options)
         driver = firefox_d
         request.cls.driver = driver
         driver.get('https://demoqa.com/')
