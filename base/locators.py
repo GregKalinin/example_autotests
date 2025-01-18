@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 
 class Locators:
 
-    """ФОРМА РЕГИСТРАЦИИ СТУДЕНТА"""
+    """Класс с локаторами"""
     # Раздел "Формы"
     FORMS_MODULE = (By.XPATH, "//h5[text()='Forms']")
     # Страница регистрации студента
