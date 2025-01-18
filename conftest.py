@@ -19,7 +19,7 @@ def open_browsers(request):
         driver.get('https://demoqa.com/')
         driver.implicitly_wait(10)
         print('\nОткрыт браузер Chrome')
-        yield
+        yield driver
         driver.quit()
 
 
@@ -39,5 +39,5 @@ def open_browsers(request):
         driver.maximize_window()
         driver.implicitly_wait(10)
         print('\nОткрыт браузер Firefox')
-        yield
+        yield driver
         driver.quit()
