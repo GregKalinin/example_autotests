@@ -22,7 +22,7 @@ class BasePage:
         """
         Метод с ожиданием кликабельности и кликом
         :param locator: Локатор элемента
-        Возвращает объект WebElement
+        :return: Объект WebElement
         """
         return wait(self.driver, 20, poll_frequency=1).until(EC.element_to_be_clickable(locator)).click()
 
@@ -30,7 +30,7 @@ class BasePage:
         """
         Метод с ожиданием кликабельности без клика
         :param locator: Локатор элемента
-        Возвращает объект WebElement
+        :return: Объект WebElement
         """
         return wait(self.driver, 20, poll_frequency=1).until(EC.element_to_be_clickable(locator))
 
@@ -38,7 +38,7 @@ class BasePage:
         """
         Отображение элемента
         :param locator: Локатор элемента
-        Возвращает объект WebElement
+        :return: Объект WebElement
         """
         return wait(self.driver, 20, poll_frequency=1).until(EC.visibility_of_element_located(locator))
 
@@ -46,7 +46,7 @@ class BasePage:
         """
         Ожидание наличия элемента
         :param locator: Локатор элемента
-        Возвращает объект WebElement
+        :return: Объект WebElement
         """
         return wait(self.driver, 20, poll_frequency=1).until(EC.presence_of_element_located(locator))
 
