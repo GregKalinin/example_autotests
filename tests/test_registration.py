@@ -50,5 +50,6 @@ class TestStudentRegistrationForm(BaseData):
                                                                  Locators.CITY_LIST_KARNAL_NAME_STUDENT_REG_FORM)
             create_page.text_on_pages(Locators.FOOTER_TEXT,
                                                '© 2013-2020 TOOLSQA.COM | ALL RIGHTS RESERVED.')
+
         finally:
             create_page.get_screenshot()
