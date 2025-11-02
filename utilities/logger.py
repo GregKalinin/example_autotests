@@ -5,7 +5,7 @@ import requests
 
 class Logger:
 
-    file_name = f"{os.getcwd()}\\logs\log_{str(datetime.datetime.now().strftime('%d.%m.%Y_время_%H.%M.%S'))}.log"
+    file_name = f"{os.getcwd()}\\tests\\logs\\log_{str(datetime.datetime.now().strftime('%d.%m.%Y_время_%H.%M.%S'))}.log"
 
     @classmethod
     def write_log_to_file(cls, data: str):
